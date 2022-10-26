@@ -9,7 +9,7 @@
         "region": "us-east-1",
         "ami_name" : "bellame-{{user `image_name`}}-{{timestamp}}",
         "source_ami": "{{user `ami`}}",
-        "instance_type": "t2.micro",
+        "instance_type": "t3.xlarge",
         "ssh_username": "admin",
         "temporary_iam_instance_profile_policy_document": {
           "Version": "2012-10-17",
