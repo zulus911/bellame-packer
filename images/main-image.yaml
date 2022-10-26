@@ -2,7 +2,7 @@
 - name: Installing software for golden image
   hosts: default
   become: yes
-  gather_facts: no
+  gather_facts: yes
 
   roles:
     - main
