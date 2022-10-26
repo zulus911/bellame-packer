@@ -1,0 +1,40 @@
+{
+    "variables": {
+      "ami": "",
+      "image_name": ""
+    },
+    "builders": [
+      {
+        "type": "amazon-ebs",
+        "region": "us-east-1",
+        "ami_name" : "bellame-{{user `image_name`}}-{{timestamp}}",
+        "source_ami": "{{user `ami`}}",
+        "instance_type": "t2.micro",
+        "ssh_username": "ec2-user",
+        "temporary_iam_instance_profile_policy_document": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "s3:*"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ]
+        },
+        "run_tags": {
+            "Name": "bcd-{{user `image_name`}}",
+            "OS_Version": "Amazon Linux",
+            "Base_AMI_ID":  "{{ .SourceAMI }}",
+            "Base_AMI_Name": "{{ .SourceAMIName }}"
+          }
+      }
+    ],
+    "provisioners": [
+      {
+        "type": "ansible",
+        "playbook_file": "./images/{{user `image_name`}}.yaml"
+      }
+    ]
+  }
