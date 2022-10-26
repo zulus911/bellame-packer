@@ -10,7 +10,7 @@
         "ami_name" : "bellame-{{user `image_name`}}-{{timestamp}}",
         "source_ami": "{{user `ami`}}",
         "instance_type": "t2.micro",
-        "ssh_username": "ec2-user",
+        "ssh_username": "admin",
         "temporary_iam_instance_profile_policy_document": {
           "Version": "2012-10-17",
           "Statement": [
