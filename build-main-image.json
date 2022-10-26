@@ -24,7 +24,7 @@
           ]
         },
         "run_tags": {
-            "Name": "bcd-{{user `image_name`}}",
+            "Name": "bellame-{{user `image_name`}}",
             "OS_Version": "Amazon Linux",
             "Base_AMI_ID":  "{{ .SourceAMI }}",
             "Base_AMI_Name": "{{ .SourceAMIName }}"
