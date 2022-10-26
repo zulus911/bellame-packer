@@ -3,6 +3,10 @@
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
 
+- name: pause
+  pause: 
+    seconds: 30
+
 - name: Include distribution and version-specific vars.
   include_vars: "{{ item }}"
   with_first_found:
