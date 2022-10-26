@@ -26,7 +26,7 @@ pipeline {
                         packer build \
                         -var "image_name=${IMAGE_NAME}" \
                         -var "ami=${SOURCE_AMI}" \
-                        build-main-image
+                        build-main-image.json
                         """
                     )
                 }
