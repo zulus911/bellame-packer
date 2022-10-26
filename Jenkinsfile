@@ -1,11 +1,5 @@
 pipeline {
 
-    agent {
-        node {
-            label 'master'
-        }
-    }
-
     options {
         buildDiscarder(logRotator(numToKeepStr: '4', artifactNumToKeepStr: '0'))
         timestamps()
